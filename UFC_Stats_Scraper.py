@@ -163,7 +163,7 @@ def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
 #print(outcomes)
 
 '''testing out get_total_fighter_stats()'''
-URL = "http://www.ufcstats.com/fighter-details/e1147d3d2dabe1ce"
-df_totals,df_sigs = get_total_fighter_stats(URL,"Robert-Whittaker-Totals.csv","Robert-Whittaker-Significants.csv",False)
+#URL = "http://www.ufcstats.com/fighter-details/e1147d3d2dabe1ce"
+#df_totals,df_sigs = get_total_fighter_stats(URL,"Robert-Whittaker-Totals.csv","Robert-Whittaker-Significants.csv",False)
 #print(df_totals)
 #print(df_sigs)
