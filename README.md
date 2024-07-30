@@ -52,7 +52,7 @@ Getting fighter stats...
 Done!
 (0, 0)
 ```
-You now have two files with every UFC Robert Whitakker Fight! Here's a small picture of the contents of "Robert_Whittaker_Totals.csv":
+You now have two files with every UFC Robert Whitakker Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above.
 
 
 ![Local Image](Figures/Example-Totals-Datafile.png)
