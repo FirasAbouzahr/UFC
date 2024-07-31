@@ -52,11 +52,10 @@ Getting fighter stats...
 Done!
 (0, 0)
 ```
-You now have two files with stats from every Robert Whitakker UFC Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above.
+You now have two files with stats from every Robert Whitakker UFC Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above. 
 
-![Local Image](Figures/Example-Totals-Datafile.png)
+![Local Image](Figures/Whittaker-Sigs-Datafile.png)
 
-There is a bit more tweaking to do on this in the future but we're ready to do some fun analysis on the Reaper! 
+Notice all of Whittaker's stats come first and his opponent's follow after. The fights can be matched with Fight#. There is a bit more tweaking to do on this in the future but we're ready to do some fun analysis on the Reaper! 
 
-## Coming Soon - Weight Class Analyses
-
+## Coming Soon - Simple Analyses with Whittaker
