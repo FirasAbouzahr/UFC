@@ -126,8 +126,17 @@ def get_fight_stats(URL):
     
 def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
     urls,outcomes = get_fight_URLs(URL)
+    
+    opp_outcomes = []
+    for i in outcomes:
+        if i == 'win':
+            opp_outcomes.append('loss')
+        else:
+            opp_outcomes.append('win')
 
     df_totals,df_sigs = get_fight_stats(urls[0])
+    
+    fight_num = [1,1]
     
     print("Getting fighter stats...")
     for index in tqdm(range(len(urls[1:]))):
@@ -135,11 +144,30 @@ def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
         df_totals_temp,df_sigs_temp = get_fight_stats(url)
         df_totals = pd.concat((df_totals,df_totals_temp))
         df_sigs = pd.concat((df_sigs,df_sigs_temp))
-    print("Done!")
+        fight_num.extend([index+2,index+2])
+        
+        
+    df_totals.insert(0,"Fight#",fight_num)
+    df_sigs.insert(0,"Fight#",fight_num)
+        
+    given_fighter = df_totals.Fighter.value_counts().keys()[0]
     
-    df_totals.index = np.arange(0,len(df_totals),1)
-    df_sigs.index = np.arange(0,len(df_sigs),1)
+    ## some Anderson Silva type coding  ##
+    # maybe stange way to go about it... but a win is a win
+    df_totals_main = df_totals[df_totals.Fighter == given_fighter]
+    df_totals_main.insert(1,"Outcome",outcomes)
+    df_totals_opp = df_totals[df_totals.Fighter != given_fighter]
+    df_totals_opp.insert(1,"Outcome",opp_outcomes)
+    df_totals = pd.concat((df_totals_main,df_totals_opp))
     
+    df_sigs_main = df_sigs[df_sigs.Fighter == given_fighter]
+    df_sigs_main.insert(1,"Outcome",outcomes)
+    df_sigs_opp = df_sigs[df_sigs.Fighter != given_fighter]
+    df_sigs_opp.insert(1,"Outcome",opp_outcomes)
+    df_sigs = pd.concat((df_sigs_main,df_sigs_opp))
+
+    print("Done getting data for",given_fighter + "!")
+
     if return_data == True:
         return df_totals,df_sigs
     else:

@@ -1,7 +1,7 @@
 # UFC - a just for fun repo by Firas Abouzahr
 In order to combine my passion for data/statistical analysis with my love for the Ultimate Fighting Championship, I decided to create this repository. 
 
-It will be full of codes that scrape data from ufcstats.com and then to subsequently analyze these stats in various means. This will be a slow work in progress over time. By the end I hope to incorporate various data science elements into this project including pre-fight predictions through statistical modeling and machine learning, post-fight breakdowns, and just cool data visualizations from individual fights, fighters, or weight classes.
+It will be full of codes that scrape data from ufcstats.com and then subsequently analyze these stats in various means. This will be a slow work in progress over time. By the end I hope to incorporate various data science elements into this project including pre-fight predictions through statistical modeling and machine learning, post-fight breakdowns, and just cool data visualizations from individual fights, fighters, or weight classes.
 
 
 ## UFC Data Scraping
@@ -42,7 +42,7 @@ The code has three functions in it. ``get_fight_stats()``,``get_fight_URLs()``, 
 
 The tables also have drop downs that have statistics per round - for now the function does not get this information. Future versions will (: 
 
-However, we want to be a bit more systematic than doing this per fight... So, we use ``get_fight_URLs()`` which takes a specific figher's main page on [`UFCstats.com`](http://www.ufcstats.com/statistics/events/completed). The function returns the links to all of the given fighter's individual fight URLs as well their outcomes (e.g., win/loss). This function is then used in ``get_total_fighter_stats()``to aggregate all of the fighter's data into datasheets. This function takes the fighter's main page URL, the file name for the totals data, the file name for the significant strikes data, and a boolean - default is False to not return these frames and just save them to csv files.
+However, we want to be a bit more systematic than doing this per fight... So, we use ``get_fight_URLs()`` which takes a specific figher's main page URL on [`UFCstats.com`](http://www.ufcstats.com/statistics/events/completed). The function returns the links to all of the given fighter's individual fight URLs as well their outcomes (e.g., win/loss). This function is then used in ``get_total_fighter_stats()``to aggregate all of the fighter's data into datasheets. This function takes the fighter's main page URL, the file name for the totals data, the file name for the significant strikes data, and a boolean - default is False to not return dataframes and just save them to csv files.
 
 ```
 >>> rob_whit_url = "http://www.ufcstats.com/fighter-details/e1147d3d2dabe1ce"
@@ -52,11 +52,11 @@ Getting fighter stats...
 Done!
 (0, 0)
 ```
-You now have two files with every UFC Robert Whitakker Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above.
-
+You now have two files with stats from every Robert Whitakker UFC Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above.
 
 ![Local Image](Figures/Example-Totals-Datafile.png)
 
 There is a bit more tweaking to do on this in the future but we're ready to do some fun analysis on the Reaper! 
 
-## Coming Soon - Statistical Modeling of Win Probabilities based on past fight matchups
+## Coming Soon - Weight Class Analyses
+
