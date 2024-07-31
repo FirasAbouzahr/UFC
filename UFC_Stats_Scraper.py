@@ -124,7 +124,7 @@ def get_fight_stats(URL):
 #
     return df_totals,df_sigs
     
-def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
+def get_total_fighter_stats(URL):
     urls,outcomes = get_fight_URLs(URL)
     
     opp_outcomes = []
@@ -168,12 +168,10 @@ def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
 
     print("Done getting data for",given_fighter + "!")
 
-    if return_data == True:
-        return df_totals,df_sigs
-    else:
-        df_totals.to_csv(totals_file,index = False)
-        df_sigs.to_csv(sigs_file,index = False)
-        return 0,0
+
+    df_totals.to_csv(given_fighter.replace(" ","_") + "_Totals.csv",index = False)
+    df_sigs.to_csv(given_fighter.replace(" ","_") + "_Significants.csv",index = False)
+    
         
 ## The double champ does what the f*ck he wants ##
     
@@ -192,6 +190,4 @@ def get_total_fighter_stats(URL,totals_file,sigs_file,return_data = False):
 
 '''testing out get_total_fighter_stats()'''
 #URL = "http://www.ufcstats.com/fighter-details/e1147d3d2dabe1ce"
-#df_totals,df_sigs = get_total_fighter_stats(URL,"Robert-Whittaker-Totals.csv","Robert-Whittaker-Significants.csv",False)
-#print(df_totals)
-#print(df_sigs)
+#get_total_fighter_stats(URL)

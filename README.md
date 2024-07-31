@@ -42,14 +42,14 @@ The code has three functions in it. ``get_fight_stats()``,``get_fight_URLs()``, 
 
 The tables also have drop downs that have statistics per round - for now the function does not get this information. Future versions will (: 
 
-However, we want to be a bit more systematic than doing this per fight... So, we use ``get_fight_URLs()`` which takes a specific figher's main page URL on [`UFCstats.com`](http://www.ufcstats.com/statistics/events/completed). The function returns the links to all of the given fighter's individual fight URLs as well their outcomes (e.g., win/loss). This function is then used in ``get_total_fighter_stats()``to aggregate all of the fighter's data into datasheets. This function takes the fighter's main page URL, the file name for the totals data, the file name for the significant strikes data, and a boolean - default is False to not return dataframes and just save them to csv files.
+However, we want to be a bit more systematic than doing this per fight... So, we use ``get_fight_URLs()`` which takes a specific figher's main page URL on [`UFCstats.com`](http://www.ufcstats.com/statistics/events/completed). The function returns the links to all of the given fighter's individual fight URLs as well their outcomes (e.g., win/loss). This function is then used in ``get_total_fighter_stats()``to aggregate all of the fighter's data into datasheets. This function takes the fighter's main page URL to plug into ``get_fight_URLs()``. The function will then output two files "FirstName_LastName_Totals.csv" and "FirstName_LastName_Significants.csv" containing the aggregated data with added columns marking the fight # in reverse chronological order and the outcome (win/loss).
 
 ```
 >>> rob_whit_url = "http://www.ufcstats.com/fighter-details/e1147d3d2dabe1ce"
->>> get_total_fighter_stats(rob_whit_url,"Robert_Whittaker_Totals.csv","Robert_Whittaker_Significants.csv")
+>>> get_total_fighter_stats(rob_whit_url)
 Getting fighter stats...
 100%|█████████████████████████████████████████████████████████████████████████| 21/21 [00:10<00:00,  1.91it/s]
-Done!
+Done getting data for Robert Whittaker!
 (0, 0)
 ```
 You now have two files with stats from every Robert Whitakker UFC Fight! Below is a snippet image of the contents of "Robert_Whittaker_Totals.csv". The full datasheets (Robert_Whittaker_Totals.csv & Robert_Whittaker_Significants.csv) can be found above. 
@@ -58,4 +58,4 @@ You now have two files with stats from every Robert Whitakker UFC Fight! Below i
 
 Notice all of Whittaker's stats come first and his opponent's follow after. The fights can be matched with Fight#. There is a bit more tweaking to do on this in the future but we're ready to do some fun analysis on the Reaper! 
 
-## Coming Soon - Simple Analyses with Whittaker
+## Coming Soon - Some Bantamweight analysis in spirit of UFC on ABC: Sandhagen vs. Nurmagomedov
